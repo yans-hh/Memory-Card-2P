@@ -1,0 +1,221 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* ini yang membuat ke tengah horizontal */
+}
+
+
+h1 {
+  margin-top: 20px;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 10px 0 20px;
+}
+
+.player {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+.active {
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px #fff;
+}
+
+.board {
+  width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, 90px);
+  grid-gap: 8px;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  backface-visibility: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* sisi depan (emoji terlihat di sini) */
+/* sisi depan (emoji terlihat di sini) */
+.front {
+  background: #2ecc71; /* hijau lembut */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  transform: rotateY(180deg);
+  border: 2px solid rgba(255,255,255,0.2);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.5);
+}
+
+
+
+/* sisi belakang kartu */
+.back {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  border: 2px solid rgba(255,255,255,0.1);
+}
+
+/* Efek saat hover (lebih terang & sedikit mengangkat) */
+.card:hover .back {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.6);
+}
+
+
+button {
+  margin-top: 20px;
+  background: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2ecc71;
+}
+
+/* Responsif */
+@media (max-width: 900px) {
+  .board {
+    width: 95vw;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 5px;
+  }
+  .card {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  .front {
+    font-size: 24px;
+  }
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* tengah horizontal */
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+#fullscreenBtn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
+
+#fullscreenBtn:hover {
+  background: #1abc9c;
+}
+
+/* ===== MODAL (POPUP PERATURAN) ===== */
+.modal {
+  display: none; /* sembunyikan default */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background: #2c3e50;
+  margin: 10% auto;
+  padding: 20px 30px;
+  border: 2px solid #27ae60;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  color: #ecf0f1;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #2ecc71;
+}
+
+.modal-content ul {
+  text-align: left;
+  padding-left: 20px;
+  line-height: 1.6;
+}
+
+#closeRules {
+  margin-top: 10px;
+  background: #e74c3c;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#closeRules:hover {
+  background: #c0392b;
+}
+
+/* Tombol peraturan */
+#rulesBtn {
+  margin-top: 10px;
+  background: #2980b9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#rulesBtn:hover {
+  background: #3498db;
+}
+
+/* Animasi muncul */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+

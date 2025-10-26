@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>Game Memory Card 2P</title>
+<meta name="description" content="Mainkan game memory card bersama temanmu dan test sberapa kuat ingatanmu.">
+<meta name="keywords" content="game memory card, game dua pemain, simple game">
+<meta name="author" content="hahaID2468">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Memory Card 2 Player (8x8)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎮 Memory Card 2 Player (8x8)</h1>
+
+  <div class="scoreboard">
+    <div id="p1" class="player active">Pemain 1: <span id="score1">0</span></div>
+    <div id="p2" class="player">Pemain 2: <span id="score2">0</span></div>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <button id="restartBtn">🔄 Main Lagi</button>
+
+  <script src="script.js"></script>
+  
+  <body>
+  <div class="container">
+	<button id="fullscreenBtn">⛶ Fullscreen</button>
+	<button id="rulesBtn">📜 Peraturan</button>
+<!-- Tambahkan popup peraturan -->
+<div id="rulesModal" class="modal">
+  <div class="modal-content">
+    <h2>📜 Peraturan Permainan</h2>
+    <ul>
+      <li>Dua pemain bergiliran membuka dua kartu.</li>
+      <li>Jika kartu cocok, pemain mendapat 1 poin dan giliran tetap.</li>
+      <li>Jika tidak cocok, giliran berpindah ke pemain lain.</li>
+      <li>Permainan berakhir saat semua kartu terbuka.</li>
+      <li>Pemenang ditentukan dari skor tertinggi.</li>
+	  <li>Admin selalu menang(jika melawan admin).</li>
+    </ul>
+    <button id="closeRules">Tutup</button>
+  </div>
+</div>
+
+
+  </div>
+</body>
+
+</body>
+</html>
